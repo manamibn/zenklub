@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Modal, Row, Table } from "react-bootstrap";
+import { Col, Modal, Row} from "react-bootstrap";
 import moment from "moment";
 import "./appointment.css";
 
@@ -85,8 +85,8 @@ class Appointment extends React.Component {
 
   renderSchedules = () => {
     const { currentDate1, currentDate2, currentDate3, currentDate4, schedules } = this.state;
-    const getClassName = (booked) => booked ? 'center-text active-slot disabled' : 'center-text active-slot';
-    const slots = ['8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30'];
+    const getClassName = (booked) => booked ? 'center-text active-slot disabled' : 'center-text active-slot enabled';
+    const slots = ['8:00', '9:00', '10:00', '11:00', '12:00', '1:00', '2:00', '3:00'];
     let i = 0;
     const rows = [[], [], [], [], [], [], [], []];
     if(Object.keys(schedules).length) {

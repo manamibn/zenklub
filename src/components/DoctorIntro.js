@@ -44,7 +44,7 @@ class DoctorIntro extends React.Component {
               <span className="reviews"> ({reviewCount})</span>
             </div>
             <div className="rate">
-              R${rate} / 30 Minutes
+              R${rate} / 50 Minutes
             </div>
           </Col>
         </Row>

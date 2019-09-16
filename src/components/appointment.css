@@ -33,8 +33,13 @@
     border: 1px #a6a6a6 solid;
     border-radius: 2px;
     padding: 3px;
+    
+}
+.active-slot.enabled{
+    color: rgb(7, 136, 187)
 }
 
 .active-slot.disabled {
-    text-decoration: line-through; 
+    text-decoration: line-through black;
+    color: rgb(241, 74, 74) 
 }
