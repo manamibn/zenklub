@@ -1,0 +1,24 @@
+.doctor-intro {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+.image-left {
+    /* border: 2px orange solid; */
+     padding-top: 10px;
+}
+.intro-right {
+    padding-top: 25px;
+}
+.description-bottom {
+    padding: 15px;
+    text-align: justify;
+}
+.profession-text {
+    color: #1e78d8;
+    text-transform: uppercase
+}
+.location-text, .reviews, .rate, .profession-text {
+    font-size: 0.9rem 
+}
+.checked {
+    color: orangered
+}

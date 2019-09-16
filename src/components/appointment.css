@@ -1,0 +1,30 @@
+.appointment {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+.calendar-header {
+    background-color: #1e78d8;
+    color: #fff;
+}
+.title-text {
+    margin: auto;
+}
+.main-text {
+    font-size: .9em
+}
+.timezone {
+    text-align: center;
+    font-size: .6em
+}
+
+.date-nav-btn {
+    font-size: 30px;
+}
+
+.date-nav-btn.disabled {
+    font-size: 30px;
+    color: #a6a6a6
+}
+
+.center-text {
+    text-align: center
+}
