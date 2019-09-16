@@ -13,7 +13,14 @@ class Appointment extends React.Component {
     currentDate4: moment().add(3, 'days').format("MM/DD/YYYY"),
     isLoading: false,
     error: null,
+    schedules: {}
   };
+
+  componentDidMount() {
+    fetch("https://api.myjson.com/bins/umh8l")
+      .then(response => response.json())
+      .then(data => this.setState({ schedules: data }));
+  }
 
   renderCalendar = () => {
     const { currentDate1, currentDate2, currentDate3, currentDate4 } = this.state;
@@ -50,8 +57,9 @@ class Appointment extends React.Component {
     );
   }
 
-  renderSchedules = (schedules = {}) => {
-    const { currentDate1, currentDate2, currentDate3, currentDate4 } = this.state;
+  renderSchedules = () => {
+    const { currentDate1, currentDate2, currentDate3, currentDate4, schedules } = this.state;
+    
     return (
         <Row>
           <Col sm={2} />

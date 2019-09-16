@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 import Appointment from './components/Appointment';
 import DoctorIntro from './components/DoctorIntro';
-import { profile, schedules } from './data/profile';
+import { profile } from './data/profile';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
           <DoctorIntro info={profile} />
         </Col>
         <Col>
-          <Appointment calendar={schedules} />
+          <Appointment />
         </Col>
       </Row>
     </Container>
