@@ -22,17 +22,36 @@ class Appointment extends React.Component {
       .then(data => this.setState({ schedules: data }));
   }
 
+  onGoForward = () => {
+    let { currentDate1, currentDate2, currentDate3, currentDate4 } = this.state;
+    currentDate1 = moment(currentDate1).add(1, 'days').format("MM/DD/YYYY");
+    currentDate2 = moment(currentDate2).add(1, 'days').format("MM/DD/YYYY");
+    currentDate3 = moment(currentDate3).add(1, 'days').format("MM/DD/YYYY");
+    currentDate4 = moment(currentDate4).add(1, 'days').format("MM/DD/YYYY");
+    this.setState({ currentDate1, currentDate2, currentDate3, currentDate4  });
+  }
+
+  onGoBack = () => {
+    let { currentDate1, currentDate2, currentDate3, currentDate4 } = this.state;
+    currentDate1 = moment(currentDate1).subtract(1, 'days').format("MM/DD/YYYY");
+    currentDate2 = moment(currentDate2).subtract(1, 'days').format("MM/DD/YYYY");
+    currentDate3 = moment(currentDate3).subtract(1, 'days').format("MM/DD/YYYY");
+    currentDate4 = moment(currentDate4).subtract(1, 'days').format("MM/DD/YYYY");
+    this.setState({ currentDate1, currentDate2, currentDate3, currentDate4  });
+  }
+
   renderCalendar = () => {
     const { currentDate1, currentDate2, currentDate3, currentDate4 } = this.state;
-    console.log(currentDate1);
-    console.log(currentDate2);
-    console.log(currentDate3);
-    console.log(currentDate4);
     const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
     return (
       <Row>
         <Col sm={2}>
-          <span className="date-nav-btn">{'<'}</span>
+          <span
+            className="date-nav-btn"
+            onClick={this.onGoBack}
+          >
+            {'<'}
+          </span>
         </Col>
         <Col sm={2}>
             <div className="center-text">{days[moment(currentDate1).day()]}</div>
@@ -51,7 +70,12 @@ class Appointment extends React.Component {
             <div className="center-text">{moment(currentDate4).format('MMM DD')}</div>
         </Col>
         <Col sm={2}>
-          <span className="date-nav-btn">{'>'}</span>
+          <span 
+            className="date-nav-btn"
+            onClick={this.onGoForward}
+          >
+            {'>'}
+          </span>
         </Col>
       </Row>
     );
