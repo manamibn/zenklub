@@ -17,9 +17,11 @@ class Appointment extends React.Component {
   };
 
   componentDidMount() {
+    this.setState({ isLoading: true });
     fetch("https://api.myjson.com/bins/umh8l")
       .then(response => response.json())
-      .then(data => this.setState({ schedules: data }));
+      .then(data => this.setState({ schedules: data, isLoading: false }))
+      .catch(error => this.setState({ error, isLoading: false }));
   }
 
   onGoForward = () => {
