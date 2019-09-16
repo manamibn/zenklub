@@ -1,7 +1,8 @@
 import React from "react";
 import { Col, Image, Row } from "react-bootstrap";
 import "./DoctorIntro.css";
-import doctorImage from "../images/doctor.png";
+// import doctorImage from "../images/doctor.png";
+import avatar from "../images/avatar.png";
 
 class DoctorIntro extends React.Component {
   render() {
@@ -31,7 +32,7 @@ class DoctorIntro extends React.Component {
       <div className="doctor-intro">
         <Row>
           <Col className="image-left">
-            <Image src={doctorImage} roundedCircle />
+            <Image src={avatar} roundedCircle />
           </Col>
           <Col className="intro-right">
             <h4>{name}</h4>
@@ -43,7 +44,7 @@ class DoctorIntro extends React.Component {
               <span className="reviews"> ({reviewCount})</span>
             </div>
             <div className="rate">
-              R${rate} / 50 Minutes
+              R${rate} / 30 Minutes
             </div>
           </Col>
         </Row>

@@ -93,10 +93,28 @@ class Appointment extends React.Component {
       while (i < 8) {
         const slotName = `slot${i+1}`;
         if (schedules[currentDate1]) {
-          rows[i].push(<Col className={getClassName(schedules[currentDate1][slotName])}>{schedules[currentDate1][slotName] !== 'na' ? slots[i] : '-'}</Col>);
-          rows[i].push(<Col className={getClassName(schedules[currentDate2][slotName])}>{schedules[currentDate2][slotName] !== 'na' ? slots[i] : '-'}</Col>);
-          rows[i].push(<Col className={getClassName(schedules[currentDate3][slotName])}>{schedules[currentDate3][slotName] !== 'na' ? slots[i] : '-'}</Col>);
-          rows[i].push(<Col className={getClassName(schedules[currentDate4][slotName])}>{schedules[currentDate4][slotName] !== 'na' ? slots[i] : '-'}</Col>);
+          const day1Slot = schedules[currentDate1][slotName];
+          rows[i].push(<Col className={getClassName(day1Slot)}>{day1Slot !== 'na' ? slots[i] : '-'}</Col>);
+        } else {
+          rows[i].push(<Col className="center-text active-slot">-</Col>);
+        }
+        if (schedules[currentDate2]) {
+          const day2Slot = schedules[currentDate2][slotName];
+          rows[i].push(<Col className={getClassName(day2Slot)}>{day2Slot !== 'na' ? slots[i] : '-'}</Col>);
+        } else {
+          rows[i].push(<Col className="center-text active-slot">-</Col>);
+        }
+        if (schedules[currentDate3]) {
+          const day3Slot = schedules[currentDate3][slotName];
+          rows[i].push(<Col className={getClassName(day3Slot)}>{day3Slot !== 'na' ? slots[i] : '-'}</Col>);
+        } else {
+          rows[i].push(<Col className="center-text active-slot">-</Col>);
+        }
+        if (schedules[currentDate4]) {
+          const day4Slot = schedules[currentDate4][slotName];
+          rows[i].push(<Col className={getClassName(day4Slot)}>{day4Slot !== 'na' ? slots[i] : '-'}</Col>);
+        } else {
+          rows[i].push(<Col className="center-text active-slot">-</Col>);
         }
         i++;
       }
