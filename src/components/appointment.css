@@ -28,3 +28,13 @@
 .center-text {
     text-align: center
 }
+
+.active-slot {
+    border: 1px #a6a6a6 solid;
+    border-radius: 2px;
+    padding: 3px;
+}
+
+.active-slot.disabled {
+    text-decoration: line-through; 
+}

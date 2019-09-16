@@ -83,63 +83,34 @@ class Appointment extends React.Component {
 
   renderSchedules = () => {
     const { currentDate1, currentDate2, currentDate3, currentDate4, schedules } = this.state;
-    
+    const getClassName = (booked) => booked ? 'center-text active-slot disabled' : 'center-text active-slot';
+    const slots = ['8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30'];
+    let i = 0;
+    const rows = [[], [], [], [], [], [], [], []];
+    if(Object.keys(schedules).length) {
+      while (i < 8) {
+        const slotName = `slot${i+1}`;
+        if (schedules[currentDate1]) {
+          rows[i].push(<Col className={getClassName(schedules[currentDate1][slotName])}>{schedules[currentDate1][slotName] !== 'na' ? slots[i] : '-'}</Col>);
+          rows[i].push(<Col className={getClassName(schedules[currentDate2][slotName])}>{schedules[currentDate2][slotName] !== 'na' ? slots[i] : '-'}</Col>);
+          rows[i].push(<Col className={getClassName(schedules[currentDate3][slotName])}>{schedules[currentDate3][slotName] !== 'na' ? slots[i] : '-'}</Col>);
+          rows[i].push(<Col className={getClassName(schedules[currentDate4][slotName])}>{schedules[currentDate4][slotName] !== 'na' ? slots[i] : '-'}</Col>);
+        }
+        i++;
+      }
+    }
     return (
         <Row>
           <Col sm={2} />
           <Col sm={8}>
-            <Table striped bordered hover>
-              <tbody>
-                <tr>
-                  <td>{schedules[currentDate1] && schedules[currentDate1].slot1 !== 'na' ? '8:00' : '-'}</td>
-                  <td>{schedules[currentDate2] && schedules[currentDate2].slot1 !== 'na' ? '8:00' : '-'}</td>
-                  <td>{schedules[currentDate3] && schedules[currentDate3].slot1 !== 'na' ? '8:00' : '-'}</td>
-                  <td>{schedules[currentDate4] && schedules[currentDate4].slot1 !== 'na' ? '8:00' : '-'}</td>
-                </tr>
-                <tr>
-                  <td>{schedules[currentDate1] && schedules[currentDate1].slot2 !== 'na' ? '8:30' : '-'}</td>
-                  <td>{schedules[currentDate2] && schedules[currentDate2].slot2 !== 'na' ? '8:30' : '-'}</td>
-                  <td>{schedules[currentDate3] && schedules[currentDate3].slot2 !== 'na' ? '8:30' : '-'}</td>
-                  <td>{schedules[currentDate4] && schedules[currentDate4].slot2 !== 'na' ? '8:30' : '-'}</td>
-                </tr>
-                <tr>
-                  <td>{schedules[currentDate1] && schedules[currentDate1].slot3 !== 'na' ? '9:00' : '-'}</td>
-                  <td>{schedules[currentDate2] && schedules[currentDate2].slot3 !== 'na' ? '9:00' : '-'}</td>
-                  <td>{schedules[currentDate3] && schedules[currentDate3].slot3 !== 'na' ? '9:00' : '-'}</td>
-                  <td>{schedules[currentDate4] && schedules[currentDate4].slot4 !== 'na' ? '9:00' : '-'}</td>
-                </tr>
-                <tr>
-                  <td>{schedules[currentDate1] && schedules[currentDate1].slot4 !== 'na' ? '9:30' : '-'}</td>
-                  <td>{schedules[currentDate2] && schedules[currentDate2].slot4 !== 'na' ? '9:30' : '-'}</td>
-                  <td>{schedules[currentDate3] && schedules[currentDate3].slot4 !== 'na' ? '9:30' : '-'}</td>
-                  <td>{schedules[currentDate4] && schedules[currentDate4].slot4 !== 'na' ? '9:30' : '-'}</td>
-                </tr>
-                <tr>
-                  <td>{schedules[currentDate1] && schedules[currentDate1].slot5 !== 'na' ? '10:00' : '-'}</td>
-                  <td>{schedules[currentDate2] && schedules[currentDate2].slot5 !== 'na' ? '10:00' : '-'}</td>
-                  <td>{schedules[currentDate3] && schedules[currentDate3].slot5 !== 'na' ? '10:00' : '-'}</td>
-                  <td>{schedules[currentDate4] && schedules[currentDate4].slot5 !== 'na' ? '10:00' : '-'}</td>
-                </tr>
-                <tr>
-                  <td>{schedules[currentDate1] && schedules[currentDate1].slot6 !== 'na' ? '10:30' : '-'}</td>
-                  <td>{schedules[currentDate2] && schedules[currentDate2].slot6 !== 'na' ? '10:30' : '-'}</td>
-                  <td>{schedules[currentDate3] && schedules[currentDate3].slot6 !== 'na' ? '10:30' : '-'}</td>
-                  <td>{schedules[currentDate4] && schedules[currentDate4].slot6 !== 'na' ? '10:30' : '-'}</td>
-                </tr>
-                <tr>
-                  <td>{schedules[currentDate1] && schedules[currentDate1].slot7 !== 'na' ? '11:00' : '-'}</td>
-                  <td>{schedules[currentDate2] && schedules[currentDate2].slot7 !== 'na' ? '11:00' : '-'}</td>
-                  <td>{schedules[currentDate3] && schedules[currentDate3].slot7 !== 'na' ? '11:00' : '-'}</td>
-                  <td>{schedules[currentDate4] && schedules[currentDate4].slot7 !== 'na' ? '11:00' : '-'}</td>
-                </tr>
-                <tr>
-                  <td>{schedules[currentDate1] && schedules[currentDate1].slot8 !== 'na' ? '11:30' : '-'}</td>
-                  <td>{schedules[currentDate2] && schedules[currentDate2].slot8 !== 'na' ? '11:30' : '-'}</td>
-                  <td>{schedules[currentDate3] && schedules[currentDate3].slot8 !== 'na' ? '11:30' : '-'}</td>
-                  <td>{schedules[currentDate4] && schedules[currentDate4].slot8 !== 'na' ? '11:30' : '-'}</td>
-                </tr>
-              </tbody>
-            </Table>
+            <Row>{rows[0]}</Row>
+            <Row>{rows[1]}</Row>
+            <Row>{rows[2]}</Row>
+            <Row>{rows[3]}</Row>
+            <Row>{rows[4]}</Row>
+            <Row>{rows[5]}</Row>
+            <Row>{rows[6]}</Row>
+            <Row>{rows[7]}</Row>
           </Col>
           <Col sm={2} />
         </Row>
