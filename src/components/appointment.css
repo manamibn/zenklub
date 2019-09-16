@@ -33,10 +33,12 @@
     border: 1px #a6a6a6 solid;
     border-radius: 2px;
     padding: 3px;
+    margin: 3px;
+    background-color: rgb(230, 235, 245)
     
 }
 .active-slot.enabled{
-    color: rgb(7, 136, 187)
+    color: rgb(6, 93, 224)
 }
 
 .active-slot.disabled {
