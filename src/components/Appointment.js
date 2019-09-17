@@ -99,27 +99,27 @@ class Appointment extends React.Component {
         const slotName = `slot${i+1}`;
         if (schedules[currentDate1]) {
           const day1Slot = schedules[currentDate1][slotName];
-          rows[i].push(<Col className={getClassName(day1Slot)}>{day1Slot !== 'na' ? slots[i] : '-'}</Col>);
+          rows[i].push(<Col className={getClassName(day1Slot)} key={currentDate1+slotName}>{day1Slot !== 'na' ? slots[i] : '-'}</Col>);
         } else {
-          rows[i].push(<Col className="center-text active-slot">-</Col>);
+          rows[i].push(<Col className="center-text active-slot" key={currentDate1+slotName}>-</Col>);
         }
         if (schedules[currentDate2]) {
           const day2Slot = schedules[currentDate2][slotName];
-          rows[i].push(<Col className={getClassName(day2Slot)}>{day2Slot !== 'na' ? slots[i] : '-'}</Col>);
+          rows[i].push(<Col className={getClassName(day2Slot)} key={currentDate2+slotName}>{day2Slot !== 'na' ? slots[i] : '-'}</Col>);
         } else {
-          rows[i].push(<Col className="center-text active-slot">-</Col>);
+          rows[i].push(<Col className="center-text active-slot" key={currentDate2+slotName}>-</Col>);
         }
         if (schedules[currentDate3]) {
           const day3Slot = schedules[currentDate3][slotName];
-          rows[i].push(<Col className={getClassName(day3Slot)}>{day3Slot !== 'na' ? slots[i] : '-'}</Col>);
+          rows[i].push(<Col className={getClassName(day3Slot)} key={currentDate3+slotName}>{day3Slot !== 'na' ? slots[i] : '-'}</Col>);
         } else {
-          rows[i].push(<Col className="center-text active-slot">-</Col>);
+          rows[i].push(<Col className="center-text active-slot" key={currentDate3+slotName}>-</Col>);
         }
         if (schedules[currentDate4]) {
           const day4Slot = schedules[currentDate4][slotName];
-          rows[i].push(<Col className={getClassName(day4Slot)}>{day4Slot !== 'na' ? slots[i] : '-'}</Col>);
+          rows[i].push(<Col className={getClassName(day4Slot)} key={currentDate4+slotName}>{day4Slot !== 'na' ? slots[i] : '-'}</Col>);
         } else {
-          rows[i].push(<Col className="center-text active-slot">-</Col>);
+          rows[i].push(<Col className="center-text active-slot" key={currentDate4+slotName}>-</Col>);
         }
         i++;
       }

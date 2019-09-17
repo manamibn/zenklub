@@ -1,7 +1,7 @@
 export const profile = {
     name: 'Dr Nyla Robinson',
     specialization: 'Psychologist',
-    location: 'San Francisco',
+    location: 'Lisbon',
     reviewCount: '25 reviews',
     starsGiven: 4,
     rate: 160,
