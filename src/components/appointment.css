@@ -1,5 +1,5 @@
 .appointment {
-    font-family: Georgia, 'Times New Roman', Times, serif
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .calendar-header {
     background-color: #1e78d8;
@@ -29,19 +29,28 @@
     text-align: center
 }
 
+.schedule-table {
+    min-width: 300px;
+}
+
 .active-slot {
     border: 1px #a6a6a6 solid;
-    border-radius: 2px;
+    border-radius: 3px;
     padding: 3px;
     margin: 3px;
     background-color: rgb(230, 235, 245)
     
 }
-.active-slot.enabled{
+
+.active-slot.enabled {
     color: rgb(6, 93, 224)
 }
 
 .active-slot.disabled {
     text-decoration: line-through black;
     color: rgb(241, 74, 74) 
+}
+
+.show-more-btn {
+    margin: auto
 }

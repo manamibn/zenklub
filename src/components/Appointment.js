@@ -13,7 +13,8 @@ class Appointment extends React.Component {
     currentDate4: moment().add(3, 'days').format("MM/DD/YYYY"),
     isLoading: false,
     error: null,
-    schedules: {}
+    schedules: {},
+    showMore: false
   };
 
   componentDidMount() {
@@ -40,6 +41,10 @@ class Appointment extends React.Component {
     currentDate3 = moment(currentDate3).subtract(1, 'days').format("MM/DD/YYYY");
     currentDate4 = moment(currentDate4).subtract(1, 'days').format("MM/DD/YYYY");
     this.setState({ currentDate1, currentDate2, currentDate3, currentDate4  });
+  }
+
+  toggleShowMore = () => {
+    this.setState({showMore: !this.state.showMore});
   }
 
   renderCalendar = () => {
@@ -84,7 +89,7 @@ class Appointment extends React.Component {
   }
 
   renderSchedules = () => {
-    const { currentDate1, currentDate2, currentDate3, currentDate4, schedules } = this.state;
+    const { currentDate1, currentDate2, currentDate3, currentDate4, schedules, showMore } = this.state;
     const getClassName = (booked) => booked ? 'center-text active-slot disabled' : 'center-text active-slot enabled';
     const slots = ['8:00', '9:00', '10:00', '11:00', '12:00', '1:00', '2:00', '3:00'];
     let i = 0;
@@ -122,15 +127,22 @@ class Appointment extends React.Component {
     return (
         <Row>
           <Col sm={2} />
-          <Col sm={8}>
+          <Col sm={8} className="schedule-table">
             <Row>{rows[0]}</Row>
             <Row>{rows[1]}</Row>
             <Row>{rows[2]}</Row>
             <Row>{rows[3]}</Row>
-            <Row>{rows[4]}</Row>
-            <Row>{rows[5]}</Row>
-            <Row>{rows[6]}</Row>
-            <Row>{rows[7]}</Row>
+            {showMore && (
+              <div>
+                <Row>{rows[4]}</Row>
+                <Row>{rows[5]}</Row>
+                <Row>{rows[6]}</Row>
+                <Row>{rows[7]}</Row>
+              </div>
+            )}
+            <Row>
+              <button className="show-more-btn" onClick={this.toggleShowMore}>{showMore ? 'Show Less' : 'Show More'}</button>
+            </Row>
           </Col>
           <Col sm={2} />
         </Row>
